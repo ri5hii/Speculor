@@ -30,7 +30,7 @@ Change `username` to your GitHub username. Add `&theme=tokyonight` to change the
 Create custom themes with URL params:
 
 ```
-&bg_color=1a1b27&text_color=c0caf5&title_color=7aa2f7&icon_color=7dcfff&border_color=3b4261
+&bgColor=1a1b27&textColor=c0caf5&titleColor=7aa2f7&iconColor=7dcfff&borderColor=3b4261
 ```
 
 ## Parameters
@@ -40,14 +40,14 @@ Create custom themes with URL params:
 | Param | Type | Default | Description |
 |---|---|---|---|
 | `theme` | string | `default` | Theme name |
-| `bg_color` | hex | — | Background color |
-| `text_color` | hex | — | Body text color |
-| `title_color` | hex | — | Title color |
-| `icon_color` | hex | — | Icon color |
-| `border_color` | hex | — | Border color |
-| `hide_border` | boolean | `false` | Remove border |
-| `border_radius` | number | `4.5` | Corner radius |
-| `hide_title` | boolean | `false` | Remove title |
+| `bgColor` | hex | — | Background color |
+| `textColor` | hex | — | Body text color |
+| `titleColor` | hex | — | Title color |
+| `iconColor` | hex | — | Icon color |
+| `borderColor` | hex | — | Border color |
+| `hideBorder` | boolean | `false` | Remove border |
+| `borderRadius` | number | `4.5` | Corner radius |
+| `hideTitle` | boolean | `false` | Remove title |
 | `locale` | string | `en` | Language |
 
 ### Stats Card (`/api/card`)
@@ -57,12 +57,12 @@ Create custom themes with URL params:
 | `username` | string | required | GitHub username |
 | `hide` | string | — | Comma-separated stats to hide |
 | `show` | string | — | Comma-separated extra stats to show |
-| `show_icons` | boolean | `false` | Show icons |
-| `hide_rank` | boolean | `false` | Hide rank circle |
-| `rank_icon` | string | `default` | `default`, `github`, or `percentile` |
-| `card_width` | number | `500` | Card width in px |
-| `custom_title` | string | — | Custom title text |
-| `ring_color` | hex | — | Rank circle color |
+| `showIcons` | boolean | `false` | Show icons |
+| `hideRank` | boolean | `false` | Hide rank circle |
+| `rankIcon` | string | `default` | `default`, `github`, or `percentile` |
+| `cardWidth` | number | `500` | Card width in px |
+| `customTitle` | string | — | Custom title text |
+| `ringColor` | hex | — | Rank circle color |
 | `locale` | string | `en` | Language |
 
 ### Top Languages (`/api/top-langs`)
@@ -72,29 +72,29 @@ Create custom themes with URL params:
 | `username` | string | required | GitHub username |
 | `layout` | string | `bar` | `bar`, `compact`, `donut`, `donut-vertical`, `pie`, `grid`, `horizontal_list`, `vertical_list`, `stacked` |
 | `hide` | string | — | Languages to hide |
-| `langs_count` | number | `5` | Number of languages (1-20) |
-| `exclude_repo` | string | — | Repos to exclude |
-| `hide_progress` | boolean | `false` | Hide percentage bars |
-| `stats_format` | string | `percentages` | `percentages` or `bytes` |
+| `langsCount` | number | `6` | Number of languages (1-20) |
+| `excludeRepo` | string | — | Repos to exclude |
+| `hideProgress` | boolean | `false` | Hide percentage bars |
+| `statsFormat` | string | `percentages` | `percentages` or `bytes` |
 
 ### Streak (`/api/streak`)
 
 | Param | Type | Default | Description |
 |---|---|---|---|
 | `user` | string | required | GitHub username |
-| `date_format` | string | `M j[, Y]` | Date format string |
-| `exclude_days` | string | — | Days to exclude (e.g. `Sat,Sun`) |
-| `starting_year` | number | — | Start year for total count |
-| `hide_total_contributions` | boolean | `false` | Hide total |
-| `hide_current_streak` | boolean | `false` | Hide current streak |
-| `hide_longest_streak` | boolean | `false` | Hide longest streak |
+| `dateFormat` | string | `M j[, Y]` | Date format string |
+| `excludeDays` | string | — | Days to exclude (e.g. `Sat,Sun`) |
+| `startingYear` | number | — | Start year for total count |
+| `hideTotalContributions` | boolean | `false` | Hide total |
+| `hideCurrentStreak` | boolean | `false` | Hide current streak |
+| `hideLongestStreak` | boolean | `false` | Hide longest streak |
 
 ### Activity Graph (`/api/activity`)
 
 | Param | Type | Default | Description |
 |---|---|---|---|
 | `username` | string | required | GitHub username |
-| `line_height` | number | `25` | Row height in px |
+| `lineHeight` | number | `25` | Row height in px |
 | `area` | boolean | `false` | Fill area under line |
 
 ### Trophy (`/api/trophy`)
@@ -103,8 +103,8 @@ Create custom themes with URL params:
 |---|---|---|---|
 | `username` | string | required | GitHub username |
 | `column` | number | `6` | Trophies per row |
-| `no-frame` | boolean | `false` | Remove frames |
-| `no-bg` | boolean | `false` | Transparent background |
+| `noFrame` | boolean | `false` | Remove frames |
+| `noBg` | boolean | `false` | Transparent background |
 | `margin` | number | `1` | Trophy margin |
 
 ### Pinned Repo (`/api/pin`)
@@ -113,8 +113,8 @@ Create custom themes with URL params:
 |---|---|---|---|
 | `username` | string | required | GitHub username |
 | `repo` | string | required | Repository name |
-| `show_owner` | boolean | `false` | Show repo owner |
-| `description_lines_count` | number | auto | Description lines (1-3) |
+| `showOwner` | boolean | `false` | Show repo owner |
+| `descriptionLinesCount` | number | auto | Description lines (1-3) |
 
 ### Mini Badge (`/api/mini`)
 
@@ -134,14 +134,14 @@ Create custom themes with URL params:
 | `days` | number | `30` | Days to show (7-90) |
 | `width` | number | `420` | Chart width |
 | `height` | number | `120` | Chart height |
-| `line_color` | hex | — | Line color |
-| `fill_color` | hex | — | Area fill color |
+| `lineColor` | hex | — | Line color |
+| `fillColor` | hex | — | Area fill color |
 
 ## Examples
 
 ```markdown
 <!-- Stats card -->
-![Stats](https://your-domain.vercel.app/api/card?username=octocat&theme=tokyonight&show_icons=true)
+![Stats](https://your-domain.vercel.app/api/card?username=octocat&theme=tokyonight&showIcons=true)
 
 <!-- Languages -->
 ![Languages](https://your-domain.vercel.app/api/top-langs?username=octocat&layout=compact&theme=dracula)

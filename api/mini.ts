@@ -1,3 +1,6 @@
+import { errorCard } from "@/errors";
+import { fetchMiniMetric } from "@/github";
+
 export async function handleMini(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const username = url.searchParams.get("username");

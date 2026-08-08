@@ -1,3 +1,6 @@
+import { errorCard } from "@/errors";
+import { fetchLanguages } from "@/github";
+
 export async function handleTopLangs(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const username = url.searchParams.get("username");

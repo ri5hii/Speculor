@@ -1,3 +1,6 @@
+import { errorCard } from "@/errors";
+import { fetchStats } from "@/github";
+
 export async function handleCard(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const username = url.searchParams.get("username");
