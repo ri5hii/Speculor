@@ -1,9 +1,8 @@
 import { errorCard } from "@/errors";
 import { fetchLanguages } from "@/github";
 
-export async function handleTopLangs(request: Request): Promise<Response> {
-  const url = new URL(request.url);
-  const username = url.searchParams.get("username");
+export async function handleTopLangs(params: URLSearchParams): Promise<Response> {
+  const username = params.get("username");
 
   if (!username) {
     return new Response(errorCard("Username is required."), {
@@ -11,11 +10,11 @@ export async function handleTopLangs(request: Request): Promise<Response> {
     });
   }
 
-  const layout = url.searchParams.get("layout") ?? "bar";
+  const layout = params.get("layout") ?? "bar";
 
-  const hide = url.searchParams.get("hide")?.split(",") ?? [];
+  const hide = params.get("hide")?.split(",") ?? [];
 
-  const langCount = parseInt(url.searchParams.get("langCount") ?? "6");
+  const langCount = parseInt(params.get("langCount") ?? "6");
 
   const data = await fetchLanguages(username);
   if (!data) {

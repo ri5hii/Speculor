@@ -1,9 +1,8 @@
 import { errorCard } from "@/errors";
 import { fetchStats } from "@/github";
 
-export async function handleCard(request: Request): Promise<Response> {
-  const url = new URL(request.url);
-  const username = url.searchParams.get("username");
+export async function handleStatsCard(params: URLSearchParams): Promise<Response> {
+  const username = params.get("username");
 
   if (!username) {
     return new Response(errorCard("Username is required."), {
@@ -11,11 +10,11 @@ export async function handleCard(request: Request): Promise<Response> {
     });
   }
 
-  const hide = url.searchParams.get("hide")?.split(",") ?? [];
+  const hide = params.get("hide")?.split(",") ?? [];
 
-  const show = url.searchParams.get("show")?.split(",") ?? [];
+  const show = params.get("show")?.split(",") ?? [];
 
-  const showIcons = url.searchParams.get("showIcons") == "true";
+  const showIcons = params.get("showIcons") == "true";
 
   const data = await fetchStats(username);
   if (!data) {
