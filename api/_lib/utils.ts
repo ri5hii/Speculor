@@ -21,4 +21,25 @@ export function measureText(text: string, fontSize: number): number {
   return text.length * fontSize * 0.6;
 }
 
-
+export const flexLayout = ({
+  items,
+  gap,
+  direction,
+  sizes = []
+}: {
+  items: string[];
+  gap: number;
+  direction: "column" | "row";
+  sizes?: number[];
+}) => {
+  let lastSize = 0;
+  return items.filter(Boolean).map((item, i) => {
+    const size = sizes[i] || 0;
+    let transform = `translate(${lastSize}, 0)`;
+    if (direction === "column") {
+      transform = `translate(0, ${lastSize})`;
+    }
+    lastSize += size + gap;
+    return `<g transform="${transform}">${item}</g>`;
+  });
+};
