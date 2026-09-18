@@ -1,6 +1,7 @@
 import { statsCard } from "@/cards/stats-card";
 import { errorCard } from "@/errors";
 import { githubStats } from "@/github";
+
 const mockData: githubStats = {
   totalStars: 1234,
   totalCommits: 5678,
